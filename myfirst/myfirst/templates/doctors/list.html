@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Врачи{% endblock %}
+
+{% block content %}
+	
+	{% if all_doctors %}
+	
+		{% for a in all_doctors %}
+			<a href="{% url 'doctor:detail' a.id %}">{{a.doctor_name}}</a>
+		{% endfor %}
+		
+	{% else %}
+		Врачи не найдены D:
+	{% endif %}
+	
+{% endblock %}

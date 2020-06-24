@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Последние статьи{% endblock %}
+
+{% block content %}
+	<style>
+	body{
+		text-align: center;
+	}
+	
+	a {
+	border-style: outset;
+	border-color: gray;
+	height: 5px;
+	line-height: 1.5;
+	}
+	</style>
+	{% if latest_articles_list %}
+	
+		{% for a in latest_articles_list %}
+			<a href="{% url 'articles:detail' a.id %}">{{a.article_title}}</a> <br>
+		{% endfor %}
+	<a href="/doctors/">Наши работники</a>
+	{% else %}
+		Статьи не найдены D:
+	{% endif %}
+	
+{% endblock %}
